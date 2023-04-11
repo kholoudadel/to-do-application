@@ -40,6 +40,15 @@ const todoController = {
       res.status(500).json({ error: error.message });
     }
   },
+
+  async deleteAll(req, res) {
+    try {
+      await todoModel.deleteAll();
+      res.status(200).json({ message: 'To-do deleted all' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
 };
 
 module.exports = todoController;

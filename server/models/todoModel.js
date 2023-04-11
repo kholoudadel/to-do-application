@@ -47,6 +47,11 @@ const todoModel = {
     const { rows } = await pool.query(query, values);
     return rows[0];
   },
+
+  async deleteAll() {
+    const query = 'DELETE FROM todo';
+    await pool.query(query);
+  },
 };
 
 module.exports = { todoSchema, todoModel };
